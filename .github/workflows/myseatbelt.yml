@@ -41,13 +41,13 @@ jobs:
       # run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
       run: |
         msbuild ${{ github.workspace }}\Seatbelt\Seatbelt.csproj
-        msbuild ${{ github.workspace }}\CheckPort\CheckPort.csproj
+        # msbuild ${{ github.workspace }}\CheckPort\CheckPort.csproj
       env:
         Configuration: ${{ matrix.configuration }}
 
-    # Copy CheckPort.exe to Release Path
-    - name: Copy CheckPort to Release Path
-      run: copy CheckPort\bin\Release\CheckPort.exe Seatbelt\bin\Release\
+    # # Copy CheckPort.exe to Release Path
+    # - name: Copy CheckPort to Release Path
+    #   run: copy CheckPort\bin\Release\CheckPort.exe Seatbelt\bin\Release\
 
     # Upload the artifact 
     - name: Upload Artifact
